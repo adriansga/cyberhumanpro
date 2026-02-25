@@ -24,6 +24,8 @@
     <meta name="twitter:description" content="Hardware do optymalizacji procesów życiowych. Smart Ring i Vision AI Glasses — od 499 PLN.">
     <meta name="twitter:image" content="https://adriansga.github.io/cyberhumanpro/og-image.jpg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
@@ -215,7 +217,63 @@
         .mobile-nav a:hover { color: var(--primary); }
         .mobile-nav .cta-primary { font-size: 0.85rem; padding: 15px 40px; margin-top: 10px; }
         @media (max-width: 768px) { .hamburger { display: flex; } .nav-desktop { display: none !important; } }
+
+        /* --- SCROLL PROGRESS BAR --- */
+        #progress-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: var(--primary); box-shadow: 0 0 8px var(--primary-glow); z-index: 9999; transition: width 0.1s linear; pointer-events: none; }
+
+        /* --- NOSCRIPT fallback --- */
+        .noscript-bar { background: var(--primary); color: #000; padding: 10px 20px; text-align: center; font-size: 0.82rem; font-weight: 700; }
     </style>
+
+    <!-- FAQPage Schema.org — Rich snippets w Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Czy potrzebuję abonamentu do korzystania z CyberHuman?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Nie. Kupujesz sprzęt jednorazowo, a dostęp do aplikacji i aktualizacji AI jest darmowy i dożywotni. Zero ukrytych kosztów." }
+            },
+            {
+                "@type": "Question",
+                "name": "Jak wygląda gwarancja i zwrot produktu?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Masz 30 dni na testy. Jeśli nie poczujesz skoku wydajności — zwracasz sprzęt, my zwracamy 100% ceny. Kuriera wysyłamy na nasz koszt. Zwrot na konto w 3–5 dni roboczych." }
+            },
+            {
+                "@type": "Question",
+                "name": "Ile trwa dostawa i ile kosztuje?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Wysyłamy w 24h od potwierdzenia. Dostawa kurierem: 2–3 dni robocze. Darmowa dostawa przy zamówieniu powyżej 999 PLN. Dla Smart Ringa koszt wysyłki: 15 PLN." }
+            },
+            {
+                "@type": "Question",
+                "name": "Czy Smart Ring i Vision Glasses działają z Androidem i iPhonem?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Tak. Aplikacja CyberHuman działa na Android 10+ i iOS 15+. Setup zajmuje około 10 minut i nie wymaga wiedzy technicznej." }
+            },
+            {
+                "@type": "Question",
+                "name": "Co dzieje się z moimi danymi biometrycznymi?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Dane biometryczne są szyfrowane end-to-end i przechowywane wyłącznie lokalnie na Twoim urządzeniu (architektura P2P). Nie sprzedajemy danych. Działamy zgodnie z RODO." }
+            },
+            {
+                "@type": "Question",
+                "name": "Czy mogę kupić sam Smart Ring lub same Glasses bez zestawu bundle?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Tak, każdy moduł działa samodzielnie. Smart Ring to kompletne narzędzie do biometrii i snu. Vision Glasses to pełny system AI overlay. Bundle łączy oba i pozwala zaoszczędzić 200 PLN." }
+            },
+            {
+                "@type": "Question",
+                "name": "Jakie wsparcie oferujecie po zakupie?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Support przez e-mail i chat w aplikacji — odpowiedzi w 24h. Przy zakupie Cyborg Bundle otrzymujesz onboarding 1:1 z Adrianem (30 min)." }
+            },
+            {
+                "@type": "Question",
+                "name": "Czy wystawiacie faktury VAT?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Tak. Podaj dane firmy i NIP przy zamówieniu — faktura VAT zostanie wysłana automatycznie na e-mail." }
+            }
+        ]
+    }
+    </script>
 
     <!-- Schema.org — Rich Snippets dla Google -->
     <script type="application/ld+json">
@@ -287,6 +345,15 @@
     </script>
 </head>
 <body>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="progress-bar"></div>
+
+    <!-- NOSCRIPT — fallback gdy JS wyłączony -->
+    <noscript>
+        <style>.rv-h { opacity: 1 !important; transform: none !important; } #floatBtn, .cookie-banner { display: none !important; }</style>
+        <div class="noscript-bar">Ta strona działa lepiej z włączonym JavaScript.</div>
+    </noscript>
 
     <!-- NAWIGACJA -->
     <nav style="position: fixed; width: 100%; top:0; z-index: 1000; background: rgba(5,5,7,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid #111;">
@@ -834,6 +901,34 @@
                 });
             }, { threshold: 0.5 });
             document.querySelectorAll('.stat-item .num').forEach(function(el) { obs.observe(el); });
+        })();
+
+        // SCROLL PROGRESS BAR
+        (function() {
+            const bar = document.getElementById('progress-bar');
+            window.addEventListener('scroll', function() {
+                const doc = document.documentElement;
+                const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+                bar.style.width = Math.min(pct, 100) + '%';
+            }, { passive: true });
+        })();
+
+        // ACTIVE NAV LINKS — podświetla aktywną sekcję
+        (function() {
+            const links = document.querySelectorAll('.nav-desktop a[href^="#"]');
+            if (!links.length) return;
+            const obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const id = '#' + entry.target.id;
+                        links.forEach(function(link) {
+                            const isActive = link.getAttribute('href') === id;
+                            link.style.color = isActive ? '#00f2ff' : '#555';
+                        });
+                    }
+                });
+            }, { threshold: 0.35, rootMargin: '-10% 0px -10% 0px' });
+            document.querySelectorAll('section[id]').forEach(function(s) { obs.observe(s); });
         })();
 
         // Exit intent

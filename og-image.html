@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<!--
+    OG IMAGE GENERATOR — CyberHuman.pro
+    ==============================================
+    JAK UŻYĆ:
+    1. Otwórz ten plik w przeglądarce
+    2. Ustaw zoom przeglądarki na 100%
+    3. Zrób screenshot okna (1200x630px)
+    4. Zapisz jako og-image.jpg w folderze projektu
+    5. Wrzuć przez PUSHHOSTING.bat
+    ==============================================
+-->
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            background: #050507;
+            font-family: 'Inter', sans-serif;
+        }
+        .wrap {
+            width: 1200px;
+            height: 630px;
+            background: radial-gradient(ellipse at 30% 50%, #10101a 0%, #050507 70%);
+            display: flex;
+            align-items: center;
+            padding: 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Siatka w tle */
+        .wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,242,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,242,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        /* Glow po prawej */
+        .glow-right {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,242,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .glow-accent {
+            position: absolute;
+            right: 200px;
+            bottom: 50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,0,234,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .content { position: relative; z-index: 1; max-width: 700px; }
+        .tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ff00ea;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: block;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 58px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.05;
+            margin-bottom: 28px;
+            background: linear-gradient(to bottom, #ffffff 0%, #00f2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 560px;
+            margin-bottom: 40px;
+        }
+        .badges {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .badge {
+            background: rgba(0,242,255,0.08);
+            border: 1px solid rgba(0,242,255,0.2);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 13px;
+            color: #00f2ff;
+            font-weight: 600;
+        }
+        .right-panel {
+            position: absolute;
+            right: 90px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            z-index: 1;
+        }
+        .price-box {
+            background: rgba(0,242,255,0.05);
+            border: 1px solid rgba(0,242,255,0.15);
+            border-radius: 20px;
+            padding: 35px 45px;
+            margin-bottom: 20px;
+        }
+        .price-label { font-size: 12px; color: #444; letter-spacing: 3px; text-transform: uppercase; font-family: 'Orbitron', sans-serif; margin-bottom: 10px; }
+        .price { font-family: 'Orbitron', sans-serif; font-size: 42px; font-weight: 900; color: #fff; }
+        .price span { font-size: 16px; color: #555; }
+        .url {
+            position: absolute;
+            bottom: 35px;
+            left: 90px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            color: #222;
+            letter-spacing: 2px;
+        }
+        .logo-mark {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            color: #00f2ff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 35px;
+            left: 90px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="glow-right"></div>
+        <div class="glow-accent"></div>
+        <span class="logo-mark">CYBERHUMAN.PRO</span>
+
+        <div class="content">
+            <span class="tag">// HUMAN 2.0</span>
+            <h1>Biologia to<br>przeżytek.</h1>
+            <p>Smart Ring + Vision AI Glasses. Przejmij kontrolę nad snem, koncentracją i danymi.</p>
+            <div class="badges">
+                <div class="badge">od 499 PLN</div>
+                <div class="badge">30 dni gwarancja</div>
+                <div class="badge">4.8★ / 127 opinii</div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="price-box">
+                <div class="price-label">Cyborg Bundle</div>
+                <div class="price">1599 <span>PLN</span></div>
+                <div style="font-size:12px; color:#333; margin-top:8px; text-decoration:line-through;">1798 PLN</div>
+            </div>
+            <div style="font-size:12px; color:#333; letter-spacing:1px;">Ring + Glasses • Oszczędzasz 200 PLN</div>
+        </div>
+
+        <div class="url">adriansga.github.io/cyberhumanpro</div>
+    </div>
+</body>
+</html>

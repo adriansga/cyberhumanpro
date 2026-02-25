@@ -49,6 +49,19 @@
         footer { padding: 40px 0; background: #000; border-top: 1px solid #0f0f0f; text-align: center; color: #222; font-size: 0.8rem; }
         footer a { color: #333; text-decoration: none; margin: 0 10px; }
         footer a:hover { color: #555; }
+
+        @media print {
+            body { background: #fff; color: #000; }
+            nav, footer, #ckBanner { display: none !important; }
+            .header { padding: 20px 0 15px; border-bottom: 2px solid #000; }
+            .header h1 { background: none; -webkit-text-fill-color: #000; font-size: 1.8rem; }
+            .header .meta { color: #666; }
+            h2 { color: #000; border-bottom: 1px solid #ccc; font-size: 0.9rem; }
+            h3 { color: #000; }
+            a { color: #000; }
+            .toc, .contact-box, .highlight-box, .notice { background: #f5f5f5; border: 1px solid #ccc; border-radius: 0; }
+            .content { padding: 20px 0; }
+        }
     </style>
 </head>
 <body>
@@ -249,8 +262,8 @@
             <h3>8.3 Pozasądowe rozwiązywanie sporów</h3>
             <p>Konsument ma możliwość skorzystania z pozasądowych sposobów rozpatrywania reklamacji i dochodzenia roszczeń:</p>
             <ul>
-                <li>Platforma ODR (Online Dispute Resolution): <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a></li>
-                <li>Inspekcja Handlowa: <a href="https://www.uokik.gov.pl" target="_blank" rel="noopener">uokik.gov.pl</a></li>
+                <li>Platforma ODR (Online Dispute Resolution): <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a></li>
+                <li>Inspekcja Handlowa: <a href="https://www.uokik.gov.pl" target="_blank" rel="noopener noreferrer">uokik.gov.pl</a></li>
                 <li>Stały polubowny sąd konsumencki przy właściwym WIIH</li>
             </ul>
 

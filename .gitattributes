@@ -1,0 +1,13 @@
+# Normalizuj końcówki linii do LF (koniec ostrzeżeń LF/CRLF)
+* text=auto eol=lf
+
+# Bat pliki muszą mieć CRLF (Windows CMD wymaga)
+*.bat text eol=crlf
+
+# Binarne — bez konwersji
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text eol=lf
