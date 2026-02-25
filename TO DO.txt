@@ -1,0 +1,72 @@
+TO DO — CyberHuman.pro
+======================
+Ostatnia aktualizacja: 25.02.2026
+
+KRYTYCZNE (strona nie działa w 100% bez tych danych):
+------------------------------------------------------
+[ ] 1. FORMSPREE ID
+        - Zarejestruj się na formspree.io
+        - Utwórz nowy formularz
+        - Skopiuj ID (np. xpwzabcd)
+        - W index.html zamień YOUR_FORM_ID na swoje ID
+        - Linia ~698 w index.html
+
+[ ] 2. OG-IMAGE.JPG (zdjęcie dla social media / link preview)
+        - Otwórz plik og-image.html w przeglądarce
+        - Ustaw zoom przeglądarki na 100%
+        - Zrób screenshot okna (dokładnie 1200x630px)
+        - Zapisz jako og-image.jpg w tym folderze
+        - Wrzuć na hosting (git add/commit/push lub PUSHHOSTING.bat)
+
+[ ] 3. MICROSOFT CLARITY ID (analityka heatmapy)
+        - Zarejestruj się na clarity.microsoft.com
+        - Utwórz nowy projekt dla cyberhuman.pro
+        - Skopiuj ID projektu
+        - W index.html znajdź komentarz "CLARITY" i wstaw ID
+        - Odkomentuj blok kodu Clarity
+
+WAŻNE (dane do uzupełnienia):
+------------------------------
+[ ] 4. NUMER TELEFONU
+        - Dodaj do footera (sekcja Kontakt)
+        - Dodaj do formularza (helper text)
+        - Znajdź w index.html "tel:" i uzupełnij
+
+[ ] 5. DANE PRAWNE w podstronach
+        - regulamin.html → wstaw: NIP, adres firmy, dane kontaktowe
+        - polityka-prywatnosci.html → wstaw: NIP, adres, email, telefon
+        - Sprawdź czy zgodne z RODO
+
+[ ] 6. SOCIAL MEDIA LINKI
+        - W index.html znajdź "sameAs" (Schema.org) i dodaj URL-e
+        - W footerze znajdź linki social i podmień "#" na prawdziwe URL-e
+        - Platformy: Instagram, TikTok, Facebook, LinkedIn (które masz)
+
+OPCJONALNE (poprawia jakość, ale strona działa bez tego):
+---------------------------------------------------------
+[ ] 7. PRAWDZIWE ZDJECIA PRODUKTOW
+        - Zastąp emoji 💍 i 🥽 prawdziwymi zdjęciami/renderami
+        - Format: WebP, max 200KB każde
+
+[ ] 8. PRAWDZIWE TESTIMONIALE
+        - Zastąp fikcyjne osoby (Marek K., Anna S., Piotr W.) prawdziwymi
+        - Dodaj zdjęcia avatarów jeśli masz
+
+[ ] 9. WLASNA DOMENA (cyberhuman.pro)
+        - Po przejściu na własną domenę zaktualizuj w index.html:
+          * canonical URL
+          * OG URL (og:url)
+          * Schema.org "url" i "logo"
+          * sitemap.xml (wszystkie URL-e)
+
+[ ] 10. GOOGLE ANALYTICS (opcjonalnie zamiast Clarity)
+        - Jeśli wolisz GA4 zamiast Microsoft Clarity
+        - Dodaj kod GA4 do <head>
+
+DEPLOY:
+-------
+Po każdej zmianie wrzuć na hosting:
+  git add . && git commit -m "opis zmian" && git push origin main
+  LUB uruchom: PUSHHOSTING.bat
+
+URL live: https://adriansga.github.io/cyberhumanpro/
