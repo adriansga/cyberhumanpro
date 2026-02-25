@@ -199,6 +199,22 @@
         .cookie-btn-ok:hover { background: #fff; }
         .cookie-btn-min { background: transparent; border: 1px solid #1a1a1a; color: #444; padding: 9px 16px; border-radius: 6px; cursor: pointer; font-size: 0.78rem; transition: 0.2s; white-space: nowrap; }
         .cookie-btn-min:hover { border-color: #333; color: #666; }
+
+        /* --- REVEAL ANIMATIONS --- */
+        .rv-h { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+
+        /* --- HAMBURGER & MOBILE NAV --- */
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; z-index: 1001; flex-shrink: 0; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--primary); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-nav { position: fixed; inset: 0; background: rgba(5,5,7,0.98); backdrop-filter: blur(15px); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); pointer-events: none; }
+        .mobile-nav.open { transform: translateX(0); pointer-events: auto; }
+        .mobile-nav a { font-family: 'Orbitron', sans-serif; font-size: 1rem; color: #666; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; transition: color 0.2s; }
+        .mobile-nav a:hover { color: var(--primary); }
+        .mobile-nav .cta-primary { font-size: 0.85rem; padding: 15px 40px; margin-top: 10px; }
+        @media (max-width: 768px) { .hamburger { display: flex; } .nav-desktop { display: none !important; } }
     </style>
 
     <!-- Schema.org — Rich Snippets dla Google -->
@@ -275,13 +291,27 @@
     <!-- NAWIGACJA -->
     <nav style="position: fixed; width: 100%; top:0; z-index: 1000; background: rgba(5,5,7,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid #111;">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 20px;">
-            <div class="logo" style="color: var(--primary); font-size: 1.1rem; letter-spacing: 2px;">CYBERHUMAN.PRO</div>
-            <div style="display: flex; gap: 20px; align-items: center;">
-                <a href="#faq" style="color: #555; text-decoration: none; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; display: none; ">FAQ</a>
+            <a href="#" class="logo" style="color: var(--primary); font-size: 1.1rem; letter-spacing: 2px; text-decoration: none;">CYBERHUMAN.PRO</a>
+            <div class="nav-desktop" style="display: flex; gap: 25px; align-items: center;">
+                <a href="#produkty" style="color: #555; text-decoration: none; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s;" onmouseover="this.style.color='#00f2ff'" onmouseout="this.style.color='#555'">Produkty</a>
+                <a href="#faq" style="color: #555; text-decoration: none; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s;" onmouseover="this.style.color='#00f2ff'" onmouseout="this.style.color='#555'">FAQ</a>
                 <a href="#zamow" class="cta-primary" style="padding: 10px 25px; font-size: 0.75rem;">Zainstaluj Upgrade</a>
             </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#produkty" onclick="closeMenu()">Produkty</a>
+        <a href="#faq" onclick="closeMenu()">FAQ</a>
+        <a href="#zamow" onclick="closeMenu()">Zamów</a>
+        <a href="#zamow" class="cta-primary" onclick="closeMenu()">Zainstaluj Upgrade</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -597,36 +627,46 @@
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 10px;">Złóż <span class="neon-text">Zamówienie</span></h2>
             <p style="text-align: center; color: #444; font-size: 0.9rem; max-width: 500px; margin: 0 auto;">Skontaktujemy się w ciągu 2h w dni robocze i przeprowadzimy Cię przez cały proces.</p>
-            <div class="order-form">
-                <h3>INICJUJ AUGMENTACJĘ</h3>
-                <div class="form-group">
-                    <label>Imię i nazwisko *</label>
-                    <input type="text" id="f-name" placeholder="Jan Kowalski" required>
+            <!-- FORMSPREE: zaloguj sie na formspree.io, stworz formularz i wklej ID zamiast YOUR_FORM_ID -->
+            <form class="order-form" id="orderForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="_subject" value="Nowe zamowienie — CyberHuman.pro">
+                <input type="hidden" name="_language" value="pl">
+                <div id="form-fields">
+                    <h3>INICJUJ AUGMENTACJĘ</h3>
+                    <div class="form-group">
+                        <label>Imię i nazwisko *</label>
+                        <input type="text" id="f-name" name="imie_nazwisko" placeholder="Jan Kowalski" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" id="f-email" name="email" placeholder="jan@firma.pl" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="tel" id="f-phone" name="telefon" placeholder="+48 500 000 000">
+                    </div>
+                    <div class="form-group">
+                        <label>Wybrany moduł *</label>
+                        <select id="f-product" name="produkt" required>
+                            <option value="">— Wybierz produkt —</option>
+                            <option value="Smart Ring NEURO — 499 PLN">Smart Ring "NEURO" — 499 PLN</option>
+                            <option value="Vision AI Glasses — 1299 PLN">Vision AI Glasses — 1299 PLN</option>
+                            <option value="Cyborg Bundle (Ring + Glasses) — 1599 PLN">Cyborg Bundle (Ring + Glasses) — 1599 PLN ★ BESTSELLER</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pytania / Uwagi (opcjonalnie)</label>
+                        <textarea id="f-notes" name="uwagi" rows="3" placeholder="Np. pytania o dostawę, kompatybilność, fakturę VAT..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-primary" id="submit-btn" style="width: 100%; font-size: 1rem; padding: 22px;">WYSYŁAM ZAMÓWIENIE</button>
+                    <p class="form-privacy">🔒 Twoje dane są bezpieczne i nie zostaną udostępnione podmiotom trzecim.<br><a href="polityka-prywatnosci.html">Polityka prywatności</a> · <a href="regulamin.html">Regulamin</a></p>
                 </div>
-                <div class="form-group">
-                    <label>E-mail *</label>
-                    <input type="email" id="f-email" placeholder="jan@firma.pl" required>
+                <div id="form-success" style="display:none; text-align:center; padding:40px 0;">
+                    <div style="font-size:3.5rem; margin-bottom:20px;">✓</div>
+                    <h3 style="color:#00c851; font-size:1rem; letter-spacing:2px; margin-bottom:12px;">ZAMÓWIENIE WYSŁANE!</h3>
+                    <p style="color:#888; line-height:1.7;">Odezwiemy się w ciągu 2h w dni robocze.<br>Sprawdź skrzynkę e-mail.</p>
                 </div>
-                <div class="form-group">
-                    <label>Telefon</label>
-                    <input type="tel" id="f-phone" placeholder="+48 500 000 000">
-                </div>
-                <div class="form-group">
-                    <label>Wybrany moduł *</label>
-                    <select id="f-product" required>
-                        <option value="">— Wybierz produkt —</option>
-                        <option value="Smart Ring NEURO — 499 PLN">Smart Ring "NEURO" — 499 PLN</option>
-                        <option value="Vision AI Glasses — 1299 PLN">Vision AI Glasses — 1299 PLN</option>
-                        <option value="Cyborg Bundle (Ring + Glasses) — 1599 PLN">Cyborg Bundle (Ring + Glasses) — 1599 PLN ★ BESTSELLER</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Pytania / Uwagi (opcjonalnie)</label>
-                    <textarea id="f-notes" rows="3" placeholder="Np. pytania o dostawę, kompatybilność, fakturę VAT..."></textarea>
-                </div>
-                <button class="cta-primary" id="submit-btn" style="width: 100%; font-size: 1rem; padding: 22px;" onclick="submitOrder()">WYSYŁAM ZAMÓWIENIE</button>
-                <p class="form-privacy">🔒 Twoje dane są bezpieczne i nie zostaną udostępnione podmiotom trzecim.<br><a href="polityka-prywatnosci.html">Polityka prywatności</a> · <a href="regulamin.html">Regulamin</a></p>
-            </div>
+            </form>
         </div>
     </section>
 
@@ -710,26 +750,91 @@
             }
         }
 
-        // Formularz zamówienia
-        function submitOrder() {
-            const name = document.getElementById('f-name').value.trim();
-            const email = document.getElementById('f-email').value.trim();
-            const product = document.getElementById('f-product').value;
+        // FORMSPREE — wysyłanie formularza zamówienia przez AJAX
+        (function() {
+            const form = document.getElementById('orderForm');
+            if (!form) return;
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const btn = document.getElementById('submit-btn');
+                btn.textContent = 'WYSYŁAM...';
+                btn.disabled = true;
+                try {
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (res.ok) {
+                        document.getElementById('form-fields').style.display = 'none';
+                        document.getElementById('form-success').style.display = 'block';
+                    } else {
+                        throw new Error();
+                    }
+                } catch(err) {
+                    btn.textContent = 'BŁĄD — SPRÓBUJ PONOWNIE';
+                    btn.style.background = '#ff4444';
+                    btn.style.boxShadow = 'none';
+                    btn.disabled = false;
+                }
+            });
+        })();
 
-            if (!name) { alert('Wpisz imię i nazwisko.'); return; }
-            if (!email || !email.includes('@')) { alert('Wpisz poprawny adres e-mail.'); return; }
-            if (!product) { alert('Wybierz produkt z listy.'); return; }
-
-            // TODO: podłącz backend / Formspree / Make.com
-            // fetch('/api/order', { method: 'POST', headers: {'Content-Type':'application/json'},
-            //   body: JSON.stringify({ name, email, product, phone: document.getElementById('f-phone').value }) })
-
-            const btn = document.getElementById('submit-btn');
-            btn.textContent = '✓ WYSŁANO — ODEZWIEMY SIĘ W CIĄGU 2H';
-            btn.style.background = '#00c851';
-            btn.style.boxShadow = '0 0 25px rgba(0,200,81,0.4)';
-            btn.disabled = true;
+        // HAMBURGER MENU
+        function toggleMenu() {
+            document.getElementById('hamburger').classList.toggle('open');
+            document.getElementById('mobileNav').classList.toggle('open');
+            document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
         }
+        function closeMenu() {
+            document.getElementById('hamburger').classList.remove('open');
+            document.getElementById('mobileNav').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // SCROLL REVEAL — elementy pojawiają się przy scrollowaniu
+        (function() {
+            if (!('IntersectionObserver' in window)) return;
+            const sel = '.section h2, .card, .testimonial-card, .use-case-card, .bento-item, .guarantee-bar, .founder-section, .faq-item, .stat-item, .order-form';
+            const obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry, i) {
+                    if (entry.isIntersecting) {
+                        setTimeout(function() { entry.target.classList.remove('rv-h'); }, i * 70);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            document.querySelectorAll(sel).forEach(function(el) {
+                el.classList.add('rv-h');
+                obs.observe(el);
+            });
+        })();
+
+        // COUNTER ANIMATION — liczniki w stats barze
+        (function() {
+            if (!('IntersectionObserver' in window)) return;
+            const obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const raw = el.textContent;
+                    const num = parseFloat(raw.replace(/[^\d.]/g, ''));
+                    const suffix = raw.replace(/[\d.]/g, '').trim();
+                    if (!num) return;
+                    const t0 = performance.now();
+                    const dur = 1600;
+                    (function tick(now) {
+                        const p = Math.min((now - t0) / dur, 1);
+                        const ease = 1 - Math.pow(1 - p, 3);
+                        el.textContent = (num % 1 === 0 ? Math.floor(ease * num) : (ease * num).toFixed(1)) + suffix;
+                        if (p < 1) requestAnimationFrame(tick);
+                        else el.textContent = raw;
+                    })(t0);
+                    obs.unobserve(el);
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.stat-item .num').forEach(function(el) { obs.observe(el); });
+        })();
 
         // Exit intent
         let pShow = false;
