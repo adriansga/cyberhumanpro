@@ -10,6 +10,8 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Adrian, CyberHuman.pro">
+    <meta name="theme-color" content="#00f2ff">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
     <!-- Open Graph — podgląd na FB / LinkedIn / WhatsApp -->
     <meta property="og:title" content="CyberHuman.pro — Augmentacja dla Przedsiębiorców | od 499 PLN">
@@ -67,7 +69,7 @@
         body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4, .logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 100px 0; border-bottom: 1px solid #111; }
+        .section { padding: 100px 0; border-bottom: 1px solid #111; content-visibility: auto; contain-intrinsic-size: 0 600px; }
         .neon-text { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
 
         /* --- PRZYCISKI --- */
@@ -182,12 +184,12 @@
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 40px; }
         .footer-brand .tagline { color: #333; font-size: 0.85rem; margin-top: 12px; max-width: 250px; line-height: 1.7; }
         .footer-col h4 { color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 2px; margin-bottom: 18px; text-transform: uppercase; }
-        .footer-col a, .footer-col p { display: block; color: #333; font-size: 0.85rem; text-decoration: none; margin-bottom: 9px; transition: 0.2s; }
+        .footer-col a, .footer-col p { display: block; color: #666; font-size: 0.85rem; text-decoration: none; margin-bottom: 9px; transition: 0.2s; }
         .footer-col a:hover { color: var(--primary); }
-        .footer-bottom { border-top: 1px solid #0f0f0f; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; color: #222; font-size: 0.8rem; }
+        .footer-bottom { border-top: 1px solid #0f0f0f; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; color: #555; font-size: 0.8rem; }
         .footer-legal { display: flex; gap: 20px; }
-        .footer-legal a { color: #222; text-decoration: none; font-size: 0.8rem; transition: 0.2s; }
-        .footer-legal a:hover { color: #555; }
+        .footer-legal a { color: #555; text-decoration: none; font-size: 0.8rem; transition: 0.2s; }
+        .footer-legal a:hover { color: #aaa; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
@@ -212,7 +214,7 @@
         .float-cta { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #000; padding: 13px 22px; border-radius: 50px; font-family: 'Orbitron', sans-serif; font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; display: flex; align-items: center; gap: 8px; box-shadow: 0 0 25px var(--primary-glow); z-index: 997; transition: var(--transition); opacity: 0; pointer-events: none; transform: translateY(10px); }
         .float-cta.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
         .float-cta:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 40px var(--primary-glow); background: #fff; }
-        @media (max-width: 600px) { .float-cta .float-label { display: none; } .float-cta { padding: 13px 16px; bottom: 20px; right: 20px; } }
+        @media (max-width: 600px) { .float-cta .float-label { display: none; } .float-cta { padding: 13px 16px; bottom: 80px; right: 20px; } }
 
         /* --- COOKIE BANNER --- */
         .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,10,12,0.97); border-top: 1px solid #1a1a1a; padding: 16px 20px; z-index: 9998; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; backdrop-filter: blur(10px); transform: translateY(0); transition: transform 0.4s ease; }
@@ -429,6 +431,7 @@
             <a href="#" class="logo" style="color: var(--primary); font-size: 1.1rem; letter-spacing: 2px; text-decoration: none;">CYBERHUMAN.PRO</a>
             <div class="nav-desktop" style="display: flex; gap: 25px; align-items: center;">
                 <a href="#produkty" style="color: #555; text-decoration: none; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s;" onmouseover="this.style.color='#00f2ff'" onmouseout="this.style.color='#555'">Produkty</a>
+                <a href="#jak-dziala" style="color: #555; text-decoration: none; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s;" onmouseover="this.style.color='#00f2ff'" onmouseout="this.style.color='#555'">Jak działa</a>
                 <a href="#faq" style="color: #555; text-decoration: none; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s;" onmouseover="this.style.color='#00f2ff'" onmouseout="this.style.color='#555'">FAQ</a>
                 <a href="#zamow" class="cta-primary" style="padding: 10px 25px; font-size: 0.75rem;">Zainstaluj Upgrade</a>
             </div>
@@ -451,7 +454,7 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <div class="container">
-            <span style="color: var(--accent); font-weight: 800; letter-spacing: 5px; font-size: 0.85rem;">HUMAN 2.0 IS HERE</span>
+            <span style="color: var(--accent); font-weight: 800; letter-spacing: 5px; font-size: 0.85rem;">CZŁOWIEK 2.0 — JUŻ TUTAJ</span>
             <h1>Biologia to przeżytek. <br><span class="neon-text">Bądź skutecznym systemem.</span></h1>
             <p style="font-size: 1.2rem; color: #666; max-width: 750px; margin: 20px auto 40px; line-height: 1.7;">Śpisz lepiej, koncentrujesz się dłużej, zamykasz więcej dealów. Smart Ring + Vision AI Glasses — technologia, która zwraca się w 3 tygodnie.</p>
             <a href="#produkty" class="cta-primary" style="font-size: 1rem; padding: 22px 50px;">ZACZNIJ AUGMENTACJĘ — OD 499 PLN</a>
@@ -490,7 +493,7 @@
 
     <!-- URGENCY BAR -->
     <div class="urgency-bar">
-        <p><span class="urgency-dot"></span>Magazyn: <strong>ostatnie 11 zestawów Cyborg Bundle</strong> w tej cenie — przy obecnym tempie zamówień wystarczą na ~3 dni</p>
+        <p><span class="urgency-dot"></span>Magazyn: <strong>ostatnie 11 zestawów Cyborg Bundle</strong> w tej cenie — zostało: <strong id="urgency-countdown" style="color: var(--accent); font-family: 'Orbitron', sans-serif;"></strong></p>
     </div>
 
     <!-- DLA KOGO -->
@@ -528,29 +531,29 @@
             <p style="text-align: center; color: #444; font-size: 0.85rem; margin-bottom: 50px;">Twarde dane techniczne — bez marketingowego ściemy</p>
             <div class="bento-grid">
                 <div class="bento-item item-large">
-                    <h4>JEDNOSTKA ANALITYCZNA</h4>
-                    <p class="val">AI VISION SYNC v4.2</p>
-                    <p style="color: #555; font-size: 0.9rem; margin-top: 15px;">Integracja z polem widzenia. Rozpoznaje kontekst biznesowy i podpowiada dane w czasie rozmowy.</p>
+                    <h4>ASYSTENT W OCZACH</h4>
+                    <p class="val">Vision AI v4.2</p>
+                    <p style="color: #555; font-size: 0.9rem; margin-top: 15px;">Widzi co Ty widzisz. Rozpoznaje kontekst rozmowy i podpowiada dane o kliencie zanim zdążysz zapytać.</p>
                 </div>
                 <div class="bento-item">
-                    <h4>SZYBKOŚĆ REAKCJI AI</h4>
+                    <h4>CZAS REAKCJI</h4>
                     <p class="val">12ms</p>
-                    <p class="benefit">Sugestia pojawia się zanim zdążysz pomyśleć</p>
+                    <p class="benefit">Szybciej niż mrugnięcie okiem</p>
                 </div>
                 <div class="bento-item">
-                    <h4>CZAS PRACY</h4>
+                    <h4>BATERIA</h4>
                     <p class="val">168h</p>
-                    <p class="benefit">Cały tydzień bez ładowania</p>
+                    <p class="benefit">Tydzień pracy bez kabla</p>
                 </div>
                 <div class="bento-item">
-                    <h4>PRYWATNOŚĆ DANYCH</h4>
+                    <h4>TWOJE DANE</h4>
                     <p class="val">P2P Encrypted</p>
-                    <p class="benefit">Biometria tylko na Twoim urządzeniu — zero chmury</p>
+                    <p class="benefit">Zero chmury — biometria tylko na Twoim telefonie</p>
                 </div>
                 <div class="bento-item">
-                    <h4>KOMPATYBILNOŚĆ</h4>
+                    <h4>DZIAŁA NA</h4>
                     <p class="val">Android & iOS</p>
-                    <p class="benefit">Setup 10 minut — działa od razu po unboxingu</p>
+                    <p class="benefit">Gotowy do użycia 10 minut po unboxingu</p>
                 </div>
             </div>
         </div>
@@ -565,7 +568,7 @@
                 <thead>
                     <tr>
                         <th>Zasób</th>
-                        <th>Standardowa Biologia</th>
+                        <th>Bez CyberHuman</th>
                         <th>CyberHuman Setup</th>
                     </tr>
                 </thead>
@@ -627,7 +630,7 @@
     </section>
 
     <!-- JAK TO DZIAŁA -->
-    <section class="section">
+    <section class="section" id="jak-dziala">
         <div class="container" style="max-width: 900px;">
             <h2 style="text-align: center; margin-bottom: 10px;">Jak to <span class="neon-text">działa?</span></h2>
             <p style="text-align: center; color: #444; font-size: 0.85rem;">Od zamówienia do pełnej augmentacji w 3 krokach</p>
@@ -967,7 +970,7 @@
             <input type="email" id="popup-email" class="popup-input" placeholder="Twój e-mail" aria-label="Adres e-mail">
             <p id="popup-err" style="display:none; color:#ff4444; font-size:0.8rem; margin-bottom:12px; text-align:left;">Wpisz poprawny adres e-mail.</p>
             <button class="cta-primary" style="width: 100%;" onclick="submitPopup()">ODBIERAM RABAT</button>
-            <p style="margin-top: 20px; font-size: 0.75rem; cursor: pointer; color: #333;" onclick="closePop()">Nie, wolę zostać w wersji 1.0</p>
+            <p style="margin-top: 20px; font-size: 0.75rem; cursor: pointer; color: #333;" onclick="closePop()">Może później</p>
         </div>
     </div>
 
@@ -1184,6 +1187,28 @@
                     btn.classList.remove('visible');
                 }
             }, { passive: true });
+        })();
+
+        // COUNTDOWN TIMER — urgency bar, 72h od pierwszej wizyty
+        (function() {
+            const key = 'chUrgencyDeadline';
+            let deadline = localStorage.getItem(key);
+            if (!deadline) {
+                deadline = Date.now() + 72 * 60 * 60 * 1000;
+                localStorage.setItem(key, deadline);
+            }
+            const el = document.getElementById('urgency-countdown');
+            if (!el) return;
+            function tick() {
+                const diff = parseInt(deadline) - Date.now();
+                if (diff <= 0) { el.textContent = 'WYGASŁA'; return; }
+                const h = Math.floor(diff / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                el.textContent = h + 'h ' + String(m).padStart(2,'0') + 'm ' + String(s).padStart(2,'0') + 's';
+            }
+            tick();
+            setInterval(tick, 1000);
         })();
 
         function submitPopup() {
