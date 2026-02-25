@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERHUMAN.PRO | Dominuj dzięki Augmentacji</title>
-    <meta name="description" content="Hardware do optymalizacji procesów życiowych. Smart Ring i Vision AI Glasses — przejmij kontrolę nad snem, koncentracją i danymi w czasie rzeczywistym.">
+    <title>CyberHuman.pro — Śpij lepiej, koncentruj się dłużej, zamykaj więcej dealów | od 499 PLN</title>
+    <meta name="description" content="Smart Ring NEURO + Vision AI Glasses dla przedsiębiorców. Raport gotowości każdego ranka, AI w okularach podczas negocjacji. Od 499 PLN, dostawa 24h, 30 dni gwarancja zwrotu.">
     <link rel="canonical" href="https://adriansga.github.io/cyberhumanpro/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Adrian, CyberHuman.pro">
 
     <!-- Open Graph — podgląd na FB / LinkedIn / WhatsApp -->
-    <meta property="og:title" content="CYBERHUMAN.PRO | Dominuj dzięki Augmentacji">
-    <meta property="og:description" content="Hardware do optymalizacji procesów życiowych. Smart Ring i Vision AI Glasses — przejmij kontrolę nad snem, koncentracją i danymi w czasie rzeczywistym.">
+    <meta property="og:title" content="CyberHuman.pro — Augmentacja dla Przedsiębiorców | od 499 PLN">
+    <meta property="og:description" content="Śpij lepiej, koncentruj się dłużej, zamykaj więcej dealów. Smart Ring + Vision AI Glasses. 30 dni gwarancja, dostawa w 24h.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://adriansga.github.io/cyberhumanpro/">
     <meta property="og:image" content="https://adriansga.github.io/cyberhumanpro/og-image.jpg">
@@ -21,9 +21,21 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CYBERHUMAN.PRO | Dominuj dzięki Augmentacji">
-    <meta name="twitter:description" content="Hardware do optymalizacji procesów życiowych. Smart Ring i Vision AI Glasses — od 499 PLN.">
+    <meta name="twitter:title" content="CyberHuman.pro — Augmentacja dla Przedsiębiorców | od 499 PLN">
+    <meta name="twitter:description" content="Śpij lepiej, koncentruj się dłużej, zamykaj więcej dealów. Smart Ring + Vision AI Glasses od 499 PLN. 30 dni gwarancja zwrotu.">
     <meta name="twitter:image" content="https://adriansga.github.io/cyberhumanpro/og-image.jpg">
+
+    <!-- Microsoft Clarity — darmowa analityka z heatmapami i nagraniami sesji -->
+    <!-- INSTRUKCJA: załóż konto na clarity.microsoft.com, stwórz projekt, wklej ID poniżej zamiast CLARITY_PROJECT_ID -->
+    <!--
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window,document,"clarity","script","CLARITY_PROJECT_ID");
+    </script>
+    -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -258,6 +270,14 @@
         .result-label { font-size: 0.78rem; color: #555; line-height: 1.6; }
         .result-arrow-up { color: #00c851; }
         .result-arrow-down { color: var(--primary); }
+
+        /* --- UPSELL HINT --- */
+        .upsell-hint { background: rgba(0,242,255,0.04); border: 1px solid rgba(0,242,255,0.15); border-radius: 10px; padding: 14px 18px; margin-top: 8px; display: none; }
+        .upsell-hint p { font-size: 0.82rem; color: #888; margin-bottom: 10px; line-height: 1.5; }
+        .upsell-hint p strong { color: #00f2ff; }
+        .upsell-btn { background: transparent; border: 1px solid rgba(0,242,255,0.3); color: #00f2ff; padding: 8px 18px; border-radius: 6px; font-size: 0.75rem; font-family: 'Orbitron', sans-serif; letter-spacing: 1px; cursor: pointer; transition: 0.2s; text-transform: uppercase; }
+        .upsell-btn:hover { background: rgba(0,242,255,0.08); border-color: #00f2ff; }
+        .form-helper { font-size: 0.72rem; color: #333; margin-top: 5px; line-height: 1.5; }
 
         /* --- ROI TAG --- */
         .roi-tag { display: inline-block; background: rgba(0,200,81,0.07); border: 1px solid rgba(0,200,81,0.18); color: #00c851; font-size: 0.72rem; padding: 5px 13px; border-radius: 50px; margin: 8px 0 18px; font-weight: 600; line-height: 1.5; }
@@ -840,8 +860,9 @@
                         <input type="email" id="f-email" name="email" placeholder="jan@firma.pl" required>
                     </div>
                     <div class="form-group">
-                        <label>Telefon</label>
+                        <label>Telefon <span style="color:#333; font-size:0.7rem; font-weight:400; text-transform:none;">(zalecane)</span></label>
                         <input type="tel" id="f-phone" name="telefon" placeholder="+48 500 000 000">
+                        <p class="form-helper">📞 Podaj numer — oddzwonimy w 2h i potwierdzimy wszystko głosowo. Szybciej niż e-mail.</p>
                     </div>
                     <div class="form-group">
                         <label>Wybrany moduł *</label>
@@ -851,6 +872,11 @@
                             <option value="Vision AI Glasses — 1299 PLN">Vision AI Glasses — 1299 PLN</option>
                             <option value="Cyborg Bundle (Ring + Glasses) — 1599 PLN">Cyborg Bundle (Ring + Glasses) — 1599 PLN ★ BESTSELLER</option>
                         </select>
+                        <!-- UPSELL HINT — pojawia się gdy wybrano Smart Ring lub Glasses -->
+                        <div class="upsell-hint" id="upsellHint">
+                            <p>💡 Dodaj drugi moduł i stwórz <strong>Cyborg Bundle</strong> — zapłacisz tylko <strong>1599 PLN</strong> zamiast <strong>1798 PLN</strong>. Oszczędzasz 200 PLN.</p>
+                            <button type="button" class="upsell-btn" onclick="upgradeToBundle()">UPGRADE DO BUNDLE →</button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Pytania / Uwagi (opcjonalnie)</label>
@@ -955,7 +981,24 @@
             for (let i = 0; i < sel.options.length; i++) {
                 if (sel.options[i].value === name) { sel.selectedIndex = i; break; }
             }
+            checkUpsell();
         }
+
+        // UPSELL HINT — pokazuje propozycję Bundle gdy wybrano Ring lub Glasses
+        function checkUpsell() {
+            const val = document.getElementById('f-product').value;
+            const hint = document.getElementById('upsellHint');
+            const showUpsell = val === 'Smart Ring NEURO — 499 PLN' || val === 'Vision AI Glasses — 1299 PLN';
+            hint.style.display = showUpsell ? 'block' : 'none';
+        }
+        function upgradeToBundle() {
+            const sel = document.getElementById('f-product');
+            for (let i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].value.includes('Cyborg Bundle')) { sel.selectedIndex = i; break; }
+            }
+            document.getElementById('upsellHint').style.display = 'none';
+        }
+        document.getElementById('f-product').addEventListener('change', checkUpsell);
 
         // FORMSPREE — wysyłanie formularza zamówienia przez AJAX
         (function() {
