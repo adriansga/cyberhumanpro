@@ -1,0 +1,15 @@
+# Claude Code
+.claude/
+
+# Google Docs / Drive pliki
+*.gdoc
+*.gsheet
+*.gslides
+
+# System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup (nie wrzucaj do repo)
+backup/

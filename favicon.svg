@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Tło -->
+  <rect width="32" height="32" rx="6" fill="#050507"/>
+
+  <!-- Hexagon -->
+  <polygon
+    points="16,2.5 27,8.7 27,21.3 16,27.5 5,21.3 5,8.7"
+    fill="none"
+    stroke="#00f2ff"
+    stroke-width="1.2"
+    opacity="0.45"
+  />
+
+  <!-- Litera C — główny element -->
+  <text
+    x="17"
+    y="23"
+    font-family="Arial Black, Arial, sans-serif"
+    font-weight="900"
+    font-size="19"
+    fill="#00f2ff"
+    text-anchor="middle"
+    filter="url(#glow)"
+  >C</text>
+
+  <!-- Mała kropka akcentu (accent color) -->
+  <circle cx="23.5" cy="9.5" r="2" fill="#ff00ea" opacity="0.8"/>
+</svg>

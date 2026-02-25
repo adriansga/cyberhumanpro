@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Strona nie znaleziona | CYBERHUMAN.PRO</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #00f2ff; --primary-glow: rgba(0,242,255,0.4); --accent: #ff00ea; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #050507; color: #e0e0e0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; overflow: hidden; }
+
+        /* Animowane tło */
+        body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, #10101a 0%, #050507 70%); z-index: -1; }
+
+        .error-code { font-family: 'Orbitron', sans-serif; font-size: clamp(6rem, 20vw, 12rem); font-weight: 900; line-height: 1; background: linear-gradient(to bottom, #fff 0%, var(--primary) 60%, transparent 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.15; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); user-select: none; pointer-events: none; }
+
+        .content { position: relative; z-index: 1; max-width: 600px; }
+
+        .tag { color: var(--accent); font-weight: 800; letter-spacing: 5px; font-size: 0.75rem; margin-bottom: 20px; display: block; }
+
+        h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; margin-bottom: 20px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        p { color: #555; font-size: 1rem; line-height: 1.7; margin-bottom: 40px; }
+
+        .cta-primary { background: var(--primary); color: #000; padding: 18px 45px; border-radius: 8px; font-weight: 900; text-decoration: none; display: inline-block; box-shadow: 0 0 25px rgba(0,242,255,0.4); transition: 0.3s; font-family: 'Orbitron', sans-serif; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,242,255,0.4); background: #fff; }
+
+        .secondary-links { margin-top: 25px; display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
+        .secondary-links a { color: #333; text-decoration: none; font-size: 0.85rem; transition: 0.2s; }
+        .secondary-links a:hover { color: var(--primary); }
+
+        .glitch { position: relative; display: inline-block; }
+        .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glitch::before { animation: glitch1 3s infinite; clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-2px); opacity: 0.7; }
+        .glitch::after { animation: glitch2 3s infinite; clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); transform: translate(2px); opacity: 0.7; }
+
+        @keyframes glitch1 { 0%, 90%, 100% { transform: translate(-2px); opacity: 0; } 92%, 98% { transform: translate(-4px); opacity: 0.6; } }
+        @keyframes glitch2 { 0%, 90%, 100% { transform: translate(2px); opacity: 0; } 94%, 96% { transform: translate(4px); opacity: 0.6; } }
+
+        .nav-logo { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-logo">CYBERHUMAN.PRO</a>
+
+    <div class="error-code">404</div>
+
+    <div class="content">
+        <span class="tag">// BŁĄD SYSTEMU</span>
+        <h1>
+            <span class="glitch" data-text="Strona nie">Strona nie</span><br>
+            <span style="color: var(--primary);">odnaleziona</span>
+        </h1>
+        <p>Wygląda na to, że ten węzeł sieci nie istnieje.<br>Być może link jest przestarzały lub adres URL zawiera błąd.</p>
+        <a href="index.html" class="cta-primary">POWRÓT DO BAZY</a>
+        <div class="secondary-links">
+            <a href="index.html#produkty">Produkty</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="index.html#zamow">Zamówienie</a>
+            <a href="mailto:kontakt@cyberhuman.pro">Kontakt</a>
+        </div>
+    </div>
+
+</body>
+</html>
