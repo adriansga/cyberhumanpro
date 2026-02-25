@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberHuman.pro — Śpij lepiej, koncentruj się dłużej, zamykaj więcej dealów | od 499 PLN</title>
+    <title>CyberHuman.pro | Smart Ring i Vision AI Glasses — od 499 PLN</title>
     <meta name="description" content="Smart Ring NEURO + Vision AI Glasses dla przedsiębiorców. Raport gotowości każdego ranka, AI w okularach podczas negocjacji. Od 499 PLN, dostawa 24h, 30 dni gwarancja zwrotu.">
+    <meta name="keywords" content="smart ring polska, vision ai glasses, biohacking, augmentacja, produktywność, smart ring dla przedsiębiorców, AI glasses, cyborg bundle, smart ring cena">
     <link rel="canonical" href="https://adriansga.github.io/cyberhumanpro/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="robots" content="index, follow">
@@ -39,7 +40,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Fonty ładowane asynchronicznie — nie blokują renderowania strony -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@700;900&display=swap"></noscript>
 
     <style>
         :root {
@@ -53,7 +56,14 @@
         }
 
         /* --- BAZA I RESET --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .rv-h { transition: none !important; opacity: 1 !important; transform: none !important; }
+            .urgency-dot { animation: none !important; }
+            .float-cta, .card, .persona-card, .use-case-card, .result-item { transition: none !important; }
+        }
         body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4, .logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -216,7 +226,7 @@
         .cookie-btn-min:hover { border-color: #333; color: #666; }
 
         /* --- REVEAL ANIMATIONS --- */
-        .rv-h { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .rv-h { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; will-change: opacity, transform; }
 
         /* --- HAMBURGER & MOBILE NAV --- */
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; z-index: 1001; flex-shrink: 0; }
@@ -341,8 +351,8 @@
             {
                 "@type": "Organization",
                 "name": "CyberHuman.pro",
-                "url": "https://cyberhuman.pro",
-                "logo": "https://cyberhuman.pro/og-image.jpg",
+                "url": "https://adriansga.github.io/cyberhumanpro/",
+                "logo": "https://adriansga.github.io/cyberhumanpro/og-image.jpg",
                 "email": "kontakt@cyberhuman.pro",
                 "address": {
                     "@type": "PostalAddress",
@@ -361,7 +371,7 @@
                     "priceCurrency": "PLN",
                     "price": "499",
                     "availability": "https://schema.org/InStock",
-                    "url": "https://cyberhuman.pro#produkty",
+                    "url": "https://adriansga.github.io/cyberhumanpro/#produkty",
                     "seller": { "@type": "Organization", "name": "CyberHuman.pro" }
                 },
                 "aggregateRating": {
@@ -380,7 +390,7 @@
                     "priceCurrency": "PLN",
                     "price": "1299",
                     "availability": "https://schema.org/InStock",
-                    "url": "https://cyberhuman.pro#produkty",
+                    "url": "https://adriansga.github.io/cyberhumanpro/#produkty",
                     "seller": { "@type": "Organization", "name": "CyberHuman.pro" }
                 }
             },
@@ -394,7 +404,7 @@
                     "priceCurrency": "PLN",
                     "price": "1599",
                     "availability": "https://schema.org/InStock",
-                    "url": "https://cyberhuman.pro#produkty",
+                    "url": "https://adriansga.github.io/cyberhumanpro/#produkty",
                     "seller": { "@type": "Organization", "name": "CyberHuman.pro" }
                 }
             }
@@ -514,7 +524,8 @@
     <!-- SPECYFIKACJA -->
     <section class="section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px;">Specyfikacja <span class="neon-text">Systemu</span></h2>
+            <h2 style="text-align: center; margin-bottom: 15px;">Co potrafi <span class="neon-text">CyberHuman?</span></h2>
+            <p style="text-align: center; color: #444; font-size: 0.85rem; margin-bottom: 50px;">Twarde dane techniczne — bez marketingowego ściemy</p>
             <div class="bento-grid">
                 <div class="bento-item item-large">
                     <h4>JEDNOSTKA ANALITYCZNA</h4>
@@ -586,6 +597,10 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#zamow" class="cta-primary" style="font-size: 0.9rem; padding: 18px 42px;">CHCĘ TĘ PRZEWAGĘ →</a>
+                <p style="color: #333; font-size: 0.75rem; margin-top: 14px;">30 dni gwarancja zwrotu · Dostawa w 24h · Zero ryzyka</p>
             </div>
         </div>
     </section>
@@ -793,6 +808,9 @@
                         <h2 style="margin: 15px 0; font-size: clamp(1.3rem, 3vw, 1.8rem);">Nie sprzedaję gadżetów. Sprzedaję czas.</h2>
                         <p style="color: #777; margin-bottom: 20px; line-height: 1.8;">Jako człowiek, który spędza 6h dziennie w aucie, wiem, że biologia to najwęższe gardło biznesu. CyberHuman.pro powstało, by to zmienić. Wybrałem tylko te narzędzia, które realnie "odkręcają" czas.</p>
                         <p style="color: #555; font-size: 0.9rem;">Projektowane w Nowym Sączu. Testowane na żywym organizmie.</p>
+                        <div style="margin-top: 28px;">
+                            <a href="#zamow" class="cta-primary" style="font-size: 0.8rem; padding: 14px 32px;">ZACZNIJ JAK JA — OD 499 PLN</a>
+                        </div>
                     </div>
                 </div>
             </div>
